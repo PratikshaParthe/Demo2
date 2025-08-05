@@ -1,10 +1,8 @@
-# 🏥 Medical Appointment No-Shows: Data Cleaning & Analysis
+# Medical Appointment No-Shows: Data Cleaning & Analysis
 
 This project focuses on cleaning and preparing a real-world healthcare dataset that records patient appointment details and whether or not they showed up. The data is sourced from Kaggle's **"Medical Appointment No Shows"** dataset and includes patient demographics, health conditions, and scheduling information.
 
----
-
-## 📊 Dataset Overview
+## Dataset Overview
 
 **Source**: [Kaggle - Medical Appointment No Shows](https://www.kaggle.com/datasets/joniarroba/noshowappointments)
 
@@ -18,41 +16,15 @@ The dataset includes **110,000+ rows** with the following key columns:
 
 ---
 
-## ✅ Task 1: Data Cleaning & Preparation
+## Task 1: Data Cleaning & Preparation
 
 ### Cleaning Goals:
-- ✅ Rename columns with typos and inconsistent casing (e.g., `Hipertension` → `Hypertension`)
-- ✅ Convert date/time fields to datetime format
-- ✅ Handle invalid age values (e.g., negative numbers)
-- ✅ Standardize categorical formats (e.g., `No-show` → `0/1`)
-- ✅ Remove duplicates and nulls
-- ✅ Feature Engineering:
+- Rename columns with typos and inconsistent casing (e.g., `Hipertension` → `Hypertension`)
+- Convert date/time fields to datetime format
+- Handle invalid age values (e.g., negative numbers)
+- Standardize categorical formats (e.g., `No-show` → `0/1`)
+- Remove duplicates and nulls
+- Feature Engineering:
   - Waiting time (`WaitDays`) between scheduling and appointment
   - Appointment day of the week
-
-### Sample Cleaning Code
-
-```python
-import pandas as pd
-
-# Load CSV file
-df = pd.read_csv('noshowappointments-kagglev2-may-2016.csv')
-
-# Rename columns
-df.rename(columns={
-    'Hipertension': 'Hypertension',
-    'Handcap': 'Handicap',
-    'No-show': 'NoShow'
-}, inplace=True)
-
-# Convert dates
-df['ScheduledDay'] = pd.to_datetime(df['ScheduledDay'], errors='coerce')
-df['AppointmentDay'] = pd.to_datetime(df['AppointmentDay'], errors='coerce')
-
-# Remove invalid ages
-df.loc[(df['Age'] < 0) | (df['Age'] > 100), 'Age'] = pd.NA
-
-# Clean boolean fields
-for col in ['Scholarship','Hypertension','Diabetes','Alcoholism','Handicap','SMS_received']_]()
-
 
